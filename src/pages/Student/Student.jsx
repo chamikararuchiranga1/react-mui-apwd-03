@@ -13,6 +13,12 @@ export default function Student() {
         setData(arr);
     }
 
+    const deleteStu = (index) => {
+        const  arr = [...data];
+        arr.splice(index, 1);
+        setData(arr);
+    }
+
     return(
         <div>
             <h1>Student</h1>
@@ -29,7 +35,7 @@ export default function Student() {
                     backgroundColor: '#c2c1c1'
                 }}>
                     {data.map((val, index) => (
-                        <StudentCard key={index}/>
+                        <StudentCard deleteStudent={()=> deleteStu(index)} key={index} age={val.age} address={val.address} name={val.name} school={val.school}/>
                     ))}
                 </Box>
         </div>

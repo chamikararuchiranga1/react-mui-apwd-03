@@ -10,7 +10,20 @@ export default function AddStudent({saveStudent}) {
     const [school, setSchool] = useState('');
 
     const AddStudentData = () => {
-        saveStudent({name: name, address: address, age: age, school: school})
+        if(name !== '' && address !== '' && age !== '' && school !== ''){
+            saveStudent({name: name, address: address, age: age, school: school});
+            clear();
+        } else {
+            alert('fill this details..!');
+        }
+
+    }
+
+    const clear = () => {
+        setName('');
+        setSchool('');
+        setAddress('');
+        setAge('');
     }
 
     return(
